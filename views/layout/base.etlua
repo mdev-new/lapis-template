@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Template">
+  <link href="/static/manifest.json" rel="manifest">
+  <link href="/static/favicon.ico" rel="icon">
+  <link href="/static/logo192.png" rel="apple-touch-icon">
+
+  <link rel="stylesheet" href="/static/bootstrap-3/bootstrap.min.css">
+
+  <script src="/static/js/htmx/htmx.min.js"></script>
+  <script src="/static/js/htmx/response-targets.js"></script>
+
+  <title><%= page_title or "Template" %></title>
+</head>
+<body hx-ext="response-targets">
+  <nav>
+  </nav>
+  <div class="container">
+    <% if toast then %>
+      <div class="alert alert-<%= toast.color %>" role="alert">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <p class="text-<%= toast.color %>"><%= toast.text %></p>
+      </div>
+    <% end %>
+    <main>
+      <% content_for("inner") %>
+    </main>
+  </div>
+  <script src="/static/bootstrap-3/jquery-1.12.4.min.js"></script>
+  <script src="/static/bootstrap-3/bootstrap.min.js"></script>
+</body>
+</html>
